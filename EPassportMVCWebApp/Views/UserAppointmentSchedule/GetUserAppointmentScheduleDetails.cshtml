@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EPassportMVCWebApp.Models.UserAppointmentSchedule>
+
+@{
+    ViewData["Title"] = "GetUserAppointmentScheduleDetails";
+}
+
+<h1>GetUserAppointmentScheduleDetails</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timeSlots)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.applicationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timeSlots)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditUserAppointmentScheduleDetails", new { grdId=item.applicationId }) |
+                    @Html.ActionLink("Details", "GetUserAppointmentScheduleDetailById", new { userid=item.applicationId }) |
+                    @Html.ActionLink("Delete", "DeleteUserAppointmentScheduleDetails", new { userid=item.applicationId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
